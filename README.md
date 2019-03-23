@@ -1,7 +1,7 @@
 # Dialogue-Script
 
 ### Syntax 
-Create a new line :
+Create a new line
 	> your_text
 Create a choice 
 	<CHOICE> choice_1 choice_2 ... choice_n </>
