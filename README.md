@@ -1,11 +1,11 @@
 # Dialogue-Script
 
-### Syntax 
-###Create a new line
+#### Syntax 
+#### Create a new line
 	> your_text
-###Create a choice 
+#### Create a choice 
 	<CHOICE> choice_1 choice_2 ... choice_n </>
-###Use the value of a choice in a if condition 
+#### Use the value of a choice in a if condition 
 	{x} //Where x is the number of the choice starting from 0
 
 
