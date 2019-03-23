@@ -1,6 +1,14 @@
 # Dialogue-Script
 
-Example :
+### Syntax :
+Create a new line :
+	> your_text
+Create a choice :
+<CHOICE> choice1 choice2 ... choicen </>
+
+
+### Example :
+'''
 #TEST
 > Blah_blah_blah_blah
 > Test
@@ -23,8 +31,7 @@ Example :
 }
 > End_of_the_script
 <END>
-
-
+'''
 ![alt text][Demo]
 
 [Demo]: Gif35.gif "Logo Title Text 2"
