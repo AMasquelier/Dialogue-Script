@@ -1,6 +1,10 @@
 # Dialogue-Script
 
 ## Syntax :
+#### Create a new script
+	#SCRIPT_NAME
+		...
+	<END>
 #### Create a new line
 	> your_text
 #### Create a choice 
