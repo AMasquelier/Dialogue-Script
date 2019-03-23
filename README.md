@@ -8,7 +8,7 @@ Create a choice :
 
 
 ### Example :
-#####
+#####Script_ex
 #TEST
 > Blah_blah_blah_blah
 > Test
