@@ -9,7 +9,7 @@ Create a choice :
 
 ### Example :
 #####Script_ex
-#TEST
+'#TEST
 > Blah_blah_blah_blah
 > Test
 > _
@@ -30,8 +30,8 @@ Create a choice :
 	}
 }
 > End_of_the_script
-<END>
-'''
+<END>'
+	
 ![alt text][Demo]
 
 [Demo]: Gif35.gif "Logo Title Text 2"
