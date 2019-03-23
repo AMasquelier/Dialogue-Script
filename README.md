@@ -1,6 +1,6 @@
 # Dialogue-Script
 
-### Syntax 
+## Syntax 
 #### Create a new line
 	> your_text
 #### Create a choice 
@@ -9,7 +9,7 @@
 	{x} //Where x is the number of the choice starting from 0
 
 
-### Example :
+## Example :
 
 	#TEST
 	> Blah_blah_blah_blah
