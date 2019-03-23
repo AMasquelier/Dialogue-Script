@@ -8,6 +8,19 @@ Create a choice :
 
 
 ### Example :
+
+####Ecrire du code
+
+#####Un code entier
+
+Voici un code en C :
+
+    int main()
+    {
+        printf("Hello world!\n");
+        return 0;
+    }
+
 #####Script_ex
 '#TEST
 > Blah_blah_blah_blah
