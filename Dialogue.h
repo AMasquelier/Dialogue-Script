@@ -6,7 +6,7 @@
 #include <windows.h>
 using namespace std;
 
-static bool debug = false;
+static bool debug = true;
 
 
 typedef struct Choice
@@ -34,6 +34,8 @@ typedef struct If
 			return v1 > v2;
 		else if (condition == ">=")
 			return v1 >= v2;
+		else if (condition == "!=")
+			return v1 != v2;
 	}
 	int pos, end;
 } If;

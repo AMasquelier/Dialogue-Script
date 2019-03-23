@@ -7,7 +7,7 @@
 int main()
 {
 	Dialogue dial;
-	dial.LoadScript("TEST");
+	dial.LoadScript("TEST2");
 
 	dial.Play();
 

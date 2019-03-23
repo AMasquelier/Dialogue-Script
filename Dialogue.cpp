@@ -48,7 +48,7 @@ void Dialogue::Play()
 			if (_choices[i].pos == line_n)
 			{
 				for (int j = 0; j < _choices[i].choices.size(); j++)
-					cout << j + 1 << " : " << _choices[i].choices[j] << endl;
+					cout << "    " << j + 1 << " : " << _choices[i].choices[j] << endl;
 
 				cin >> choice;
 				_choices[i].data = choice;
@@ -60,7 +60,7 @@ void Dialogue::Play()
 			if (_conditions[i].pos == line_n)
 			{
 				if (!_conditions[i].test())
-					line_n = _conditions[i].end;
+					line_n = _conditions[i].end+1;
 			}
 		}
 		
@@ -76,7 +76,6 @@ void Dialogue::Play()
 void Dialogue::LoadScript(string ID)
 {
 	ifstream file("Dialogue.txt", std::ios::in);
-	if (debug) cout << "Reading Dialogues file..." << endl;
 	int pos = 0;
 	string act_line;
 	if (file)
@@ -101,7 +100,6 @@ void Dialogue::LoadScript(string ID)
 					
 					Choice buf1;
 					string buf2;
-					cout << pos << endl;
 					buf1.pos = pos;
 					file >> buf2;
 					while (buf2 != "</>")
@@ -117,6 +115,9 @@ void Dialogue::LoadScript(string ID)
 					string i1, i2;
 					string cond, trash;
 					file >> i1 >> cond >> i2 >> trash;
+					i2.erase(i2.end()-1);
+					int last_pos = file.tellg();
+
 					buf.i1 = i1; buf.i2 = i2; buf.condition = cond;
 					buf.pos = pos;
 					file >> trash;
@@ -127,13 +128,12 @@ void Dialogue::LoadScript(string ID)
 						{
 							file >> trash;
 							size_count++;
-							_text.push_back(trash);
-							pos++;
 						}
 						file >> trash;
 					}
 					buf.end = pos - 1 + size_count;
 					_conditions.push_back(buf);
+					file.seekg(last_pos);
 				}
 
 				file >> act_line;
@@ -144,27 +144,30 @@ void Dialogue::LoadScript(string ID)
 
 		if (debug)
 		{
+			cout << "Dialogue - debug" << endl << endl;
 			cout << _text.size() << " Dialogue lines" << endl;
 			for (int i = 0; i < _text.size(); i++)
-				cout << i << " > " << _text[i] << endl;
-
+				cout << "    " <<  i << " > " << _text[i] << endl;
+			cout << "------------------------------------------------------" << endl;
 			cout << _choices.size() << " choices to make" << endl;
 			for (int i = 0; i < _choices.size(); i++)
 			{
-				cout << "Choice n." << i + 1 << "(size : " << _choices[i].choices.size() << ", pos : " << _choices[i].pos << ")" << endl;
+				cout << "    Choice n." << i + 1 << "(size : " << _choices[i].choices.size() << ", pos : " << _choices[i].pos << ")" << endl;
 				for (int j = 0; j < _choices[i].choices.size(); j++)
-					cout << "    " << _choices[i].choices[j] << endl;
+					cout << "        " << _choices[i].choices[j] << endl;
 			}
 
 			cout << _conditions.size() << " conditions" << endl;
 			for (int i = 0; i < _conditions.size(); i++)
 			{
-				cout << "condition n." << i + 1 << "(start : " << _conditions[i].pos << ", end : " << _conditions[i].end << ", " << _conditions[i].i1 << _conditions[i].condition << _conditions[i].i2 << ")" << endl;
+				cout << "    Condition n." << i + 1 << "(start : " << _conditions[i].pos << ", end : " << _conditions[i].end << ", " << _conditions[i].i1 << _conditions[i].condition << _conditions[i].i2 << ")" << endl;
 				
 			}
 		}
+		cout << "_____________________________________________________" << endl << endl;
 	}
 	else cout << "No " << ID << " found" << endl;
+	
 }
 
 int Dialogue::find_ID(string ID, ifstream *file)
