@@ -1,0 +1,14 @@
+#TEST
+> Blah_blah_blah_blah
+> Test
+<CHOICE> Un Deux </>
+<IF {0} == 2 >
+{
+	> Deux
+}
+<IF {0} == 1 >
+{
+	> Un
+}
+> Fin du scripteuh
+<END>
