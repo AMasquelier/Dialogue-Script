@@ -10,7 +10,7 @@
 #### Create a choice 
 	<CHOICE> choice_0 choice_1 ... choice_n </>
 #### Create a if condition
-	<IF v1 condition v2> // Condition is "==", "<=", ...
+	<IF value1 condition value2> // Condition is "==", "<=", ... and values are integers
 	{
 	  ...
 	}
