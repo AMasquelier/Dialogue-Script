@@ -20,3 +20,12 @@
 }
 > End_of_the_script
 <END>
+#TEST2
+> Test2
+<CHOICE> Un Deux </>
+<IF {0} == 2>
+{
+	> Not_something_else_than_2
+}
+> End_of_the_script
+<END>

@@ -19,7 +19,10 @@ void Dialogue::Update()
 			buf.erase(buf.begin());
 			buf.erase(buf.end());
 			int n = stoi(buf);
-			_conditions[i].v1 = _choices[n].data;
+			if (n < _choices.size())
+				_conditions[i].v1 = _choices[n].data;
+			else
+				cout << "Invalid choice number in condition n." << i << endl;
 		}
 		else _conditions[i].v1 = stoi(_conditions[i].i1);
 
@@ -29,7 +32,10 @@ void Dialogue::Update()
 			buf.erase(buf.begin());
 			buf.erase(buf.end());
 			int n = stoi(buf);
-			_conditions[i].v2 = _choices[n].data;
+			if (n < _choices.size())
+				_conditions[i].v2 = _choices[n].data;
+			else
+				cout << "Invalid choice number in condition n." << i << endl;
 		}
 		else _conditions[i].v2 = stoi(_conditions[i].i2);
 	}
@@ -180,12 +186,14 @@ int Dialogue::find_ID(string ID, ifstream *file)
 	{
 		int last_pos = file->tellg();
 		(*file) >> act_line;
-		if (act_line == "#" + ID)
+		if (act_line == ("#" + ID))
 		{
+			cout << "pos : " << last_pos << endl;
 			(*file) >> act_line;
 			found = true;
+			return last_pos;
 		}
-		return last_pos;
+		
 	}
 	return -1;
 }
