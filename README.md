@@ -9,6 +9,11 @@
 	> your_text
 #### Create a choice 
 	<CHOICE> choice_0 choice_1 ... choice_n </>
+#### Create a if condition
+	<IF v1 condition v2> // Condition is "==", "<=", ...
+	{
+	  ...
+	}
 #### Use the value of a choice in a if condition 
 	{x} //Where x is the number of the choice starting from 0
 
